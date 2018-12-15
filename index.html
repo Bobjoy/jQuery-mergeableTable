@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>合并单元格插件</title>
+	<link rel="stylesheet" href="https://cdn.90so.net/layui/2.4.5/css/layui.css">
+	<style>
+		#app {
+			margin: 10px auto;
+			text-align: center;
+		}
+		.intro {
+			width: 400px;
+			text-align: left;
+			padding: 10px;
+			color: red;
+			margin: 0 auto;
+		}
+		.intro p {
+			font-size: 12px;
+		}
+
+		table {
+			width: 400px;
+			border-collapse: collapse;
+			border: 1px solid #CCC;
+			margin: 0 auto;
+		}
+
+		/* 默认 shift+鼠标左键 为选中文本，去除该默认行为 */
+		td,th {
+			border: 1px solid #CCC;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1>表格单元格合并插件演示</h1>
+
+		<div class="intro">
+			<h2>注意事项：</h2>
+			<p>1. 该插件只支持table表格</p>
+			<p>2. 该插件不支持跳跃选择</p>
+			<p>3. 合并后的单元格不能再参与合并</p>
+			<h2>操作说明：</h2>
+			<p>1. 鼠标左键单击起始单元格，再次单击则取消选中</p>
+			<p>2. 按住Shift键，选择下一个单元格</p>
+			<p>3. Ctrl+z可以撤销上一步操作</p>
+			<p>4. 请在高亮的单元格内鼠标右键合并，否则无效</p>
+			<p>5. 请选择同一行或同一列单元格</p>
+		</div>
+
+		<table>
+			<thead>
+			<tr>
+				<th>昵称</th>
+				<th>积分</th>
+				<th>签名</th>
+				<th>城市</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>贤心1</td>
+				<td>66</td>
+				<td>人生就像是一场修行a</td>
+				<td>北京</td>
+			</tr>
+			<tr>
+				<td>贤心2</td>
+				<td>88</td>
+				<td>人生就像是一场修行b</td>
+				<td>上海</td>
+			</tr>
+			<tr>
+				<td>贤心3</td>
+				<td>33</td>
+				<td>人生就像是一场修行c</td>
+				<td>广州</td>
+			</tr>
+			<tr>
+				<td>贤心4</td>
+				<td>44</td>
+				<td>人生就像是一场修行e</td>
+				<td>深圳</td>
+			</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+	<script src="https://cdn.90so.net/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.90so.net/layui/2.4.5/layui.all.js"></script>
+	<script src="./jQuery-mergeableTable.js"></script>
+	<script>
+	$(function(){
+		$('table').mergeable({
+			cellColor: '#2D93CA',
+			menuColor: '#6681B0'
+		});
+	})
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
