@@ -1,21 +1,5 @@
 ;(function(){
 
-    function alertWarn(msg) {
-        if (typeof jr === 'undefined') {
-            window.alert(msg);
-        } else {
-            window.jr.alertWarn(msg);
-        }
-    }
-
-    function alertConfirm(msg, title, yes) {
-        if (typeof jr === 'undefined') {
-            window.confirm(msg) && yes();
-        } else {
-            window.jr.alertConfirm(msg, title, yes);
-        }
-    }
-
     function buildStyle(opts) {
         var $style = $('#mgStyle');
         if ($style.length === 0) {
@@ -100,7 +84,7 @@
 
             // 非连续选择
             if (sx !== ex && sy !== ey) {
-                alertWarn('请选择连续的行或列！');
+                lib.alertWarn('请选择连续的行或列！');
                 return;
             }
 
@@ -195,16 +179,16 @@
 
         var self = this, $currentRow = $(self.currentCell).parent(), $tds, idx;
         if (self.matrix.start.x === -1) {
-            alertWarn('请选择要合并的单元格！');
+            lib.alertWarn('请选择要合并的单元格！');
             return;
         }
 
         if (self.matrix.end.x === -1) {
-            alertWarn('请选择多个连续单元格！');
+            lib.alertWarn('请选择多个连续单元格！');
             return;
         }
 
-        alertConfirm('合并单元格时，仅保留左上角的值，而放弃其他值', '警告', function(){
+        lib.alertConfirm('合并单元格时，仅保留左上角的值，而放弃其他值', '警告', function(){
             // 合并行
             if (self.direction === 'row') {
                 $tds = $currentRow.find('.mg_selected');
